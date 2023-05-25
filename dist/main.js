@@ -72,7 +72,9 @@ __webpack_require__(1);
 var SDK = __webpack_require__(19);
 var sdk = new SDK(null, null, true); // 3rd argument true bypassing https requirement: not prod worthy
 
-var address, width, height, zoom, link, mapsKey;
+var address, width, height, zoom, link, 
+// mapsKey
+;
 
 function debounce (func, wait, immediate) {
 	var timeout;
@@ -90,7 +92,7 @@ function debounce (func, wait, immediate) {
 }
 
 function paintSettings () {
-	document.getElementById('text-input-id-0').value = mapsKey;
+	// document.getElementById('text-input-id-0').value = mapsKey;
 	document.getElementById('text-input-id-1').value = address;
 	document.getElementById('slider-id-01').value = width;
 	document.getElementById('slider-id-02').value = height;
@@ -116,7 +118,9 @@ function paintMap() {
 	}
 	var url = 'https://maps.googleapis.com/maps/api/staticmap?center=' +
 		address.split(' ').join('+') + '&size=' + width + 'x' + height + '&zoom=' + zoom +
-		'&markers=' + address.split(' ').join('+') + '&key=' + mapsKey;
+		'&markers=' + address.split(' ').join('+') + '&key=AIzaSyAJP73JRaOwhLZV7g1Sbwn34X7CRKejSNA'
+		//  + mapsKey
+		 ;
 	sdk.setContent('<a href="' + link + '"><img src="' + url + '" /></a>');
 	sdk.setData({
 		address: address,
@@ -124,9 +128,9 @@ function paintMap() {
 		height: height,
 		zoom: zoom,
 		link: link,
-		mapsKey: mapsKey
+		// mapsKey: mapsKey
 	});
-	localStorage.setItem('googlemapsapikeyforblock', mapsKey);
+	// localStorage.setItem('googlemapsapikeyforblock', mapsKey);
 }
 
 sdk.getData(function (data) {
@@ -135,7 +139,7 @@ sdk.getData(function (data) {
 	height = data.height || 300;
 	zoom = data.zoom || 15;
 	link = data.link || '';
-	mapsKey = data.mapsKey || localStorage.getItem('googlemapsapikeyforblock');
+	// mapsKey = data.mapsKey || localStorage.getItem('googlemapsapikeyforblock');
 	paintSettings();
 	paintSliderValues();
 	paintMap();
