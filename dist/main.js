@@ -107,7 +107,7 @@ function paintSliderValues () {
 
 function paintMap() {
 	// mapsKey='AIzaSyAJP73JRaOwhLZV7g1Sbwn34X7CRKejSNA'
-	mapsKey = document.getElementById('text-input-id-0').value;
+	// mapsKey = document.getElementById('text-input-id-0').value;
 	address = document.getElementById('text-input-id-1').value;
 	width = document.getElementById('slider-id-01').value;
 	height = document.getElementById('slider-id-02').value;
